@@ -17,7 +17,7 @@ end
 
 s = Solution.new
 sum = 0
-lines = File.readlines(ARGV[0]).map {|line| line.chomp}.each_slice(3) {|slice| sum += s.calculate(slice)}
+File.readlines(ARGV[0]).map {|line| line.chomp}.each_slice(3) {|slice| sum += s.calculate(slice)}
 
 p sum
 
