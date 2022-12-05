@@ -21,12 +21,12 @@
     (> (count i) 0)))
 
 (defn part-fn
-  [s fn]
+  [s f]
   (->>
     (map #(->> %
                (convert-input-line)
                (make-ranges)
-               (fn))
+               (f))
          (.split s "\\n"))
     (filter true?)
     (count)))
