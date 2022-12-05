@@ -20,27 +20,24 @@
   (let [i (clojure.set/intersection (set r1) (set r2))]
     (> (count i) 0)))
 
-(defn part1
-  [s]
+(defn part-fn
+  [s fn]
   (->>
     (map #(->> %
                (convert-input-line)
                (make-ranges)
-               (full-intersect?))
+               (fn))
          (.split s "\\n"))
     (filter true?)
     (count)))
 
+(defn part1
+  [s]
+  (part-fn s full-intersect?))
+
 (defn part2
   [s]
-  (->>
-    (map #(->> %
-               (convert-input-line)
-               (make-ranges)
-               (partial-intersect?))
-         (.split s "\\n"))
-    (filter true?)
-    (count)))
+  (part-fn s partial-intersect?))
 
 (part1 "2-4,6-8\n2-3,4-5\n5-7,7-9\n2-8,3-7\n6-6,4-6\n2-6,4-8")
 (part2 "2-4,6-8\n2-3,4-5\n5-7,7-9\n2-8,3-7\n6-6,4-6\n2-6,4-8")
