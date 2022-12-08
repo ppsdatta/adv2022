@@ -31,7 +31,7 @@ class Grid
     trees = self.left_of(r, c)
     return 0 if trees.empty?
     ix = trees.reverse.find_index { |x| x >= @grid[r][c] }
-    if ix.nil? then
+    if ix.nil?
       trees.count
     else
       (0..ix).count
@@ -42,7 +42,7 @@ class Grid
     trees = self.right_of(r, c)
     return 0 if trees.empty?
     ix = trees.find_index { |x| x >= @grid[r][c] }
-    if ix.nil? then
+    if ix.nil?
       trees.count
     else
       (0..ix).count
@@ -53,7 +53,7 @@ class Grid
     trees = self.above_of(r, c)
     return 0 if trees.empty?
     ix = trees.reverse.find_index { |x| x >= @grid[r][c] }
-    if ix.nil? then
+    if ix.nil?
       trees.count
     else
       (0..ix).count
@@ -64,7 +64,7 @@ class Grid
     trees = self.down_of(r, c)
     return 0 if trees.empty?
     ix = trees.find_index { |x| x >= @grid[r][c] }
-    if ix.nil? then
+    if ix.nil?
       trees.count
     else
       (0..ix).count
@@ -129,5 +129,3 @@ p g.visible_count
 
 # Part 2
 p g.max_score
-
-
